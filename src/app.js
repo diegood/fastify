@@ -1,13 +1,13 @@
 import Fastify from 'fastify';
-import AutoLoad, { AutoloadPluginOptions } from '@fastify/autoload';
+import AutoLoad from '@fastify/autoload';
 import { join } from 'path';
 
 const fastify = Fastify({
   logger: true
 });
 
-const pluginOptions: Partial<AutoloadPluginOptions> = {
-  // Place your custom options the autoload plugin below here.
+const pluginOptions = {
+  // Place your custom options for the autoload plugin below here.
 }
 
 fastify.register(AutoLoad, {
