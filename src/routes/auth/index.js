@@ -1,5 +1,7 @@
 import { checkTelegramAuth, saveTelegramUserData } from '../../utils/telegram-auth.js';
 
+import fp from 'fastify-plugin';
+
 const auth = async (fastify) => {
   // Ruta para el callback de autenticación
   fastify.get('/auth/telegram', async (request, reply) => {
@@ -19,4 +21,6 @@ const auth = async (fastify) => {
   });
 };
 
-export default auth;
+export default fp(auth, {
+  name: 'auth-routes'
+});
